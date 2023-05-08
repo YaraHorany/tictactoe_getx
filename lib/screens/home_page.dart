@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tictactoe_getx/constants/colors.dart';
+import 'package:tictactoe_getx/controllers/tictactoe_controller.dart';
+import 'package:tictactoe_getx/widgets/Cell.dart';
 
 class HomePage extends StatelessWidget {
+  TicTacToeController controller = Get.put(TicTacToeController());
+
   static var customFontWhite = GoogleFonts.coiny(
     textStyle: const TextStyle(
       color: Colors.white,
@@ -11,7 +17,7 @@ class HomePage extends StatelessWidget {
     ),
   );
 
-  const HomePage({Key? key}) : super(key: key);
+  HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +28,7 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: [
             Expanded(
+              flex: 1,
               child: Column(
                 children: [
                   const SizedBox(height: 10),
@@ -46,6 +53,16 @@ class HomePage extends StatelessWidget {
                   ),
                 ],
               ),
+            ),
+            Expanded(
+              flex: 5,
+              child: GridView.builder(
+                  itemCount: 9,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3),
+                  itemBuilder: (BuildContext context, int index) {
+                    return Cell(controller: controller, index: index);
+                  }),
             ),
           ],
         ),
