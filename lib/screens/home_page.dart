@@ -64,6 +64,43 @@ class HomePage extends StatelessWidget {
                     return Cell(controller: controller, index: index);
                   }),
             ),
+            Expanded(
+              flex: 2,
+              child: Center(
+                child: Obx(
+                  () => Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        controller.ticTacToe.value.resultDeclaration,
+                        style: customFontWhite,
+                      ),
+                      const SizedBox(height: 10),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: MainColor.secondaryColor,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20.0),
+                          ),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 32, vertical: 16),
+                        ),
+                        onPressed: () {
+                          controller.clearBoard();
+                          controller.updateAttempt();
+                        },
+                        child: Text(
+                          controller.ticTacToe.value.attempts == 0
+                              ? "Start"
+                              : "Play Again!",
+                          style: customFontWhite,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),

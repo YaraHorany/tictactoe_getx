@@ -16,4 +16,10 @@ class TicTacToeController extends GetxController {
       val?.winnerFound = false;
     });
   }
+
+  void updateAttempt() {
+    ticTacToe.update((val) {
+      val?.attempts++;
+    });
+  }
 }
