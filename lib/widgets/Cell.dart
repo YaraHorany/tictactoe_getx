@@ -14,7 +14,9 @@ class Cell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-        onTap: () {},
+        onTap: () {
+          controller.tapped(index);
+        },
         child: Obx(
           () => Container(
             decoration: BoxDecoration(
@@ -31,10 +33,8 @@ class Cell extends StatelessWidget {
               child: Text(
                 controller.ticTacToe.value.displayXO[index],
                 style: GoogleFonts.coiny(
-                  textStyle: TextStyle(
-                    fontSize: 64,
-                    color: MainColor.primaryColor,
-                  ),
+                  textStyle:
+                      TextStyle(fontSize: 64, color: MainColor.primaryColor),
                 ),
               ),
             ),

@@ -16,7 +16,6 @@ class HomePage extends StatelessWidget {
       fontSize: 28,
     ),
   );
-
   HomePage({Key? key}) : super(key: key);
 
   @override
@@ -28,32 +27,36 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: [
             Expanded(
-              flex: 1,
-              child: Column(
-                children: [
-                  const SizedBox(height: 10),
-                  Row(
-                    children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
+                flex: 1,
+                child: Column(
+                  children: [
+                    const SizedBox(height: 10),
+                    Obx(
+                      () => Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          Text('Player X', style: customFontWhite),
-                          Text('0', style: customFontWhite),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text('Player X', style: customFontWhite),
+                              Text(controller.ticTacToe.value.xScore.toString(),
+                                  style: customFontWhite),
+                            ],
+                          ),
+                          const SizedBox(width: 20),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text('Player O', style: customFontWhite),
+                              Text(controller.ticTacToe.value.oScore.toString(),
+                                  style: customFontWhite),
+                            ],
+                          ),
                         ],
                       ),
-                      const SizedBox(width: 20),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Text('Player O', style: customFontWhite),
-                          Text('0', style: customFontWhite),
-                        ],
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
+                    ),
+                  ],
+                )),
             Expanded(
               flex: 5,
               child: GridView.builder(
