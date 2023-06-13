@@ -14,3 +14,11 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+## Screenshots
+
+| Initial screen                                                     | Winning screen                                                       | Nobody wins                                                       | 
+|--------------------------------------------------------------------|----------------------------------------------------------------------|-------------------------------------------------------------------|
+| <img src="screen-shots/initial_mode.png" width="200" height="400"> | <img src="screen-shots/winning_screen.png" width="200" height="400"> | <img src="screen-shots/nobody_wins.png" width="200" height="400"> |
+
+
